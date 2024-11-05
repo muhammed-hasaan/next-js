@@ -1,0 +1,95 @@
+/* Container styling */
+.filters-container {
+  width: 30%;
+  /* min-width: 380px; */
+  padding: 25px;
+  background: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  margin: 25px auto;
+  transition: all 0.3s ease;
+}
+
+/* Titles and headers */
+.filters-titleSub {
+  /* color: #3498db; */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.filter-group h4 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Input and select styling */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Button styling */
+.search-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #297dbb;
+}
+
+/* Tag group */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag-group span {
+  background-color: #e7f3ff;
+  color: #3498db;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .filters-container {
+    padding: 15px;
+    margin: 15px auto;
+  }
+
+  .filters-titleSub {
+    font-size: 1.3rem;
+  }
+
+  .filter-group h4 {
+    font-size: 0.9rem;
+  }
+
+  .search-button {
+    font-size: 1rem;
+  }
+}

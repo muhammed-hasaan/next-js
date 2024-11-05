@@ -1,0 +1,94 @@
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+const CurrentlyDeployedResources = () => {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Sample data for deployed resources
+  const resources = [
+    {
+      id: 1,
+      name: "BIM Engineer",
+      status: "Deployed",
+      location: "Dubai",
+      deployedDate: "2023-01-10",
+    },
+    {
+      id: 2,
+      name: "Quality Engineer",
+      status: "Deployed",
+      location: "Abu Dhabi",
+      deployedDate: "2023-02-15",
+    },
+    // Add more resources as needed
+  ];
+
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <input
+        type="text"
+        placeholder="Search resources..."
+        className="p-2 border rounded mb-4 w-full"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <table className="w-[1000px] border-collapse border border-gray-200 text-center">
+        <thead>
+          <tr>
+            <th className="border border-gray-300 px-4 py-2">Resource Name</th>
+            <th className="border border-gray-300 px-4 py-2">Status</th>
+            <th className="border border-gray-300 px-4 py-2">Location</th>
+            <th className="border border-gray-300 px-4 py-2">Deployed Date</th>
+            <th className="border border-gray-300 px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {resources
+            .filter((resource) =>
+              resource.name.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((resource) => (
+              <tr key={resource.id} className="hover:bg-gray-100">
+                <td className="border border-gray-300 px-4 py-2">
+                  {resource.name}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {resource.status}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {resource.location}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {resource.deployedDate}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  <button
+                    onClick={() => {
+                      router.push(
+                        "/Dashboard/ResourceManagement/CurrentlyDeployedResources/CurrentlyDeployedResourcesDetail"
+                      );
+                    }}
+                    className="text-blue-500 hover:underline"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    onClick={() => {
+                      router.push(
+                        "/Dashboard/ResourceManagement/CurrentlyDeployedResources/CurrentlyDeployedResourcesRelease"
+                      );
+                    }}
+                    className="text-red-500 hover:underline ml-2"
+                  >
+                    Release
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default CurrentlyDeployedResources;

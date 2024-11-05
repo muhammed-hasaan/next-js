@@ -1,0 +1,17 @@
+/* Keyframes for right-to-left scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Apply the scroll animation to the carousel */
+.animate-scroll {
+  display: flex;
+  gap: 1rem; /* Space between videos */
+  animation: scroll 150s linear infinite;
+  width: max-content;
+}

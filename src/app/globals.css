@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: white;
+  --foreground: #171717;
+}
+
+.carousel {
+  animation: scroll 10s linear infinite; /* Adjust duration for speed */
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Adjust this value based on your items */
+  }
+}
+
+/* Optional: Hide scrollbar */
+.carousel {
+  overflow: hidden; /* Hide the scrollbar */
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: white;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 1024px) {
+  .responsiveFullWidth {
+    width: 100%;
+  }
+}
+
+/* For Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+@media (max-width: 1024px) {
+  .responsivehide {
+    display: none;
+  }
+}
+
+.UserProfileBanner {
+  background-image: url("../../Assets/UserProfile/banner.jpg");
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite; /* Linear infinite scrolling */
+  animation-timing-function: linear;
+  will-change: transform;
+}
